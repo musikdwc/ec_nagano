@@ -10,4 +10,9 @@ Rails.application.routes.draw do
       registrations: 'customers/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :admins do
+    resources :genres, only: [:index ,:create, :edit, :update]
+  end
+
 end
