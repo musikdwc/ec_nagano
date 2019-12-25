@@ -8,12 +8,12 @@
   <p>ジャンル作成</p>
   <%= f.text_field :genre_name %>
 
-  <%= f.radio_button :genre_status, :on %>
-  <%= f.label :gender, "有効", {value: :on, style: "display: inline-block;"} %>
-  <%= f.radio_button :genre_status, :off %>
-  <%= f.label :gender, "無効", {value: :off, style: "display: inline-block;"} %>
+  <%= f.radio_button :genre_status, :有効 %>
+  <%= f.label :genre_status, "有効" %>
+  <%= f.radio_button :genre_status, :無効 %>
+  <%= f.label :genre_status, "無効" %>
 
-  <br><%= f.submit 'Create Check Memo' %></br>
+  <br><%= f.submit 'Create Genre' %></br>
 <% end %>
 
 <h2>ジャンル一覧</h2>
@@ -26,11 +26,11 @@
         <td>
           <%= genre.genre_name %>
         </td>
-        <td>¥
+        <td>
           <%= genre.genre_status %>
         </td>
         <td>
-          編集する
+          <%= link_to "編集する" %>
         </td>
       </tr>
     <% end %>

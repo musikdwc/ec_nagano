@@ -1,5 +1,5 @@
 class Genre < ApplicationRecord
   enum genre_status: {
-    on: 0, off: 1
+    有効: 0, 無効: 1
   }
 end
