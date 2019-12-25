@@ -1,0 +1,24 @@
+<h1>商品新規登録</h1>
+
+<div class="container">
+	<%= form_for @product_new, url: admins_products_path do |f| %>
+	  <div class="row">
+	  	<div class="col-xm-3 ">
+				<h3> 商品画像登録 </h3>
+				<%= f.attachment_field :product_image %>
+	    </div>
+	  </div>
+
+		<div class="col-xm-9">
+			<h3>商品名</h3>
+			<%= f.text_field :product_name %>
+			<h3>商品説明</h3>
+			<%= f.text_area :product_description %>
+			<h3>価格</h3>
+			<%= f.text_area :non_tax %>
+			<h3>ジャンル選択</h3>
+			<h3>販売ステータス</h3>
+			<%= f.submit  '商品登録' %>
+		</div>
+	</div>
+<% end %>
