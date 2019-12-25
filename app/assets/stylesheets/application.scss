@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+  body {
+  padding-top: 51px;
+  }
+
+  footer {
+    width: 100%;
+    height: 120px;
+
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px;
+
+    font-size: 15px;
+  }
+
+  .cancel-button{
+    padding: 50px;
+  }
+
+  .customer-box{
+    background-color: silver;
+    width: 10%;
+  }
+
+  .table-bordered{
+    padding: 15px;
+    height: 300px;
+  }
+
+  .mypage-header{
+    padding: 20px;
+  }
+
+  .mypage-header-box{
+    padding: 50px 0px;
+  }
+
+  .mypage-table{
+    padding-bottom: 40px;
+  }
+  .customer-form{
+    width: 30%;
+  }
+  .admin-show-title{
+    padding: 20px;
+  }
+  .admin-show-btn{
+    margin: 15px;
+  }
+  .signup-table { margin-top: 30px; }
+  .signup_name { margin-right: 30px;}
+  .form {
+   border-radius: 10px;
+   height: 40px;
+  }
+  .signup-container{
+    margin-top: 100px;
+    margin-left: 100px;
+  }
+  .submit-btn{
+    margin-top: 40px;
+  }
