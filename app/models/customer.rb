@@ -3,6 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 	devise :database_authenticatable, :registerable,
 			:recoverable, :rememberable, :validatable
+  has_many :carts
   enum customer_status: {有効: 0, 無効: 1 }
 	validates :lastname, presence: true
 	validates :firstname, presence: true
