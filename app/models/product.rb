@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-	# belongs_to :genre
+	belongs_to :genre
  	attachment :product_image
-#  	enum genre_id:    [ :有効, :無効 ]
+	enum product_status:{有効:0, 無効:1}
 end

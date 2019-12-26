@@ -1,11 +1,11 @@
 class ProductsController < ApplicationController
   # あとでbefore_action :authenticate_user!を追加
   def index
-  	@producut = Product.all
+  	@products = Product.all
   end
 
   def show
-  	@prodcuts = product.find(params[:id])
+  	@product = Product.find(params[:id])
   end
 
 

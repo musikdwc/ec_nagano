@@ -5,8 +5,9 @@
     <th>商品画像</th>
     <th>商品名</th>
     <th>商品説明</th>
-    <th>ジャンル名</th>
+    <th>販売中/販売停止中</th>
     <th>価格</th>
+    <th>ジャンル</th>
   </tr>
 </thead>
 <tbody>
@@ -14,8 +15,10 @@
         <td><%= attachment_image_tag @product, :product_image, :fill, 300, 300, fallback:"No-Image-Available.png",size: :"300x300" %></td>
         <td><%= @product.product_name %></td>
         <td><%= @product.product_description %></td>
-        <td>ジャンル名</td>
-        <td> <%= @product.non_tax %> </td>
+        <td><%= @product.product_status %></td>
+        <td><%= @product.non_tax %></td>
+        <td><%= @product.genre.genre_name %></td>
+        <td></td>
       </tr>
 </tbody>
 </table>

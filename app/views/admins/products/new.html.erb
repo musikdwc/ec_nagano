@@ -16,8 +16,11 @@
 			<%= f.text_area :product_description %>
 			<h3>価格</h3>
 			<%= f.text_area :non_tax %>
-			<h3>ジャンル選択</h3>
 			<h3>販売ステータス</h3>
+			 <label><%= f.radio_button  :product_status, :有効 %> 販売中 </label>
+ 			 <label><%= f.radio_button  :product_status, :無効 %> 販売停止中</label>
+			<h3>ジャンル</h3>
+   	    	<%= f.collection_select(:genre_id, @genre, :id,:genre_name) %>
 			<%= f.submit  '商品登録' %>
 		</div>
 	</div>
