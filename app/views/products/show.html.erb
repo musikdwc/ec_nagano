@@ -1,0 +1,9 @@
+<h1>商品詳細</h1>
+
+ <td><%= attachment_image_tag @product, :product_image, :fill, 300, 300, fallback:"No-Image-Available.png",size: :"300x300" %></td>
+        <span>商品名</span>
+        <span><%= @product.product_name %></span>
+        <span>商品説明</span>
+        <span><%= @product.product_description %></span>
+        <span><%= @product.non_tax %></span>
+        <span><%= @product.genre.genre_name %></span>
