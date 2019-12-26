@@ -1,0 +1,25 @@
+<%= render 'headfoot/header' %>
+
+<h2>カート一覧</h2>
+
+<table class="table">
+  <tbody>
+     <% @carts.each do |cart| %>
+      <tr>
+        <td></td>
+        <td>
+           cart.product_name %>
+        </td>
+        <td>
+           cart.product_値段 %>
+        </td>
+        <td>
+           cart.product_個数（変動可能） %>
+        </td>
+      </tr>
+     <% end %>
+  </tbody>
+</table>
+
+
+<%= render 'headfoot/footer' %>

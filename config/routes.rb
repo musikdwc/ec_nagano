@@ -19,6 +19,11 @@ Rails.application.routes.draw do
    resources :genres, only: [:index ,:create, :edit, :update]
 
   end
+  namespace :customers do
+    resources :carts, only: [:index ,:create, :update, :destroy]
+  end
+
+  resources :products
 
     get '/customer/cancel', to: 'customers#cancel'
     get '/customers', to: 'customers#show'
