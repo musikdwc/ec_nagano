@@ -16,3 +16,7 @@ Admin.create!(
       password: '111111'
     }
 )
+
+
+
+Taxes.create(tax: 1.1)
