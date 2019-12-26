@@ -1,0 +1,26 @@
+<h1>商品一覧</h1>
+
+<%= link_to "new",new_admins_product_path %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>商品名</th>
+ 	     	<th>税抜き価格</th>
+ 		    <th>ジャンル</th>
+ 		    <th>ステータス</th>
+ 	    </tr>
+    </thead>
+
+ 	<% @product_all.each do |f| %>
+	  <tr>
+    <td><%=link_to f.product_name, admins_product_path(f.id) %></td>
+    <td><%= f.non_tax%></td>
+    <td><%= f.product.genre.genre_name %></td>
+    <td><%= f.product_status %></td>
+ 	  </tr>
+    <% end %>
+ </tbody>
+</table>
+</div>
+</div>
+</div>

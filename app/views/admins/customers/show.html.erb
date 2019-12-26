@@ -1,0 +1,65 @@
+	<%= render 'headfoot/header' %>
+<div class="container">
+	<div class="row mypage-header">
+		<h4 class="col-xs-12">会員詳細画面</h4>
+		<!-- <a class="btn btn-primary" href="/customers/edit" role="button">編集する</a> -->
+	<div class="row admin-customer-box">
+		<table class="col-xs-6">
+			　<tr>
+			    <th class="col-xs-1 admin-show-title">顧客ID</th>
+			    <td class="col-lg-1">
+			    	<%= @customer.id %>
+			    	<span class="label label-info"><%= @customer.customer_status %>会員</span>
+		    	</td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 admin-show-title">氏名</th>
+			    <td class="col-lg-1">
+			    	<%= @customer.lastname %>
+			    	<%= @customer.firstname %>
+		    	</td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 admin-show-title">カナ</th>
+			    <td class="col-lg-1" >
+			    	<%= @customer.lastkana %>
+			    	<%= @customer.firstkana %>
+			    </td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 admin-show-title">郵便番号</th>
+			    <td class="col-lg-1">〒<%= @customer.postal_code %></td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 admin-show-title">住所</th>
+			    <td class="col-lg-1" ><%= @customer.address %></td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 admin-show-title">電話番号</th>
+			    <td class="col-lg-1" ><%= @customer.telephone_number %></td>
+			  </tr>
+			  <tr >
+			    <th class="col-xs-1 admin-show-title">メールアドレス</th>
+			    <td class="col-lg-1" ><%= @customer.email %></td>
+			  </tr>
+		</table>
+	</div>
+	<div class="row">
+		<%= link_to "編集する", edit_admins_customer_path, data: {"turbolinks" => false}, class: "btn btn-primary admin-show-btn" %>
+		<%= link_to "注文履歴一覧を見る", admins_customers_path, data: {"turbolinks" => false}, class: "btn btn-primary admin-show-btn" %>
+	</div>
+
+
+
+<div class="customer_status-field">
+	<%= form_for(@customer) do |f| %>
+	    <%= f.label :customer_status %><br />
+	    <%= f.label :"有効"  %>
+	    <%= f.radio_button :customer_status, :有効 %>
+	    <%= f.label :"無効"  %>
+	    <%= f.radio_button :customer_status, :無効 %>
+	    <%= f.submit "会員情報を編集する" %>
+	<% end %>
+</div>
+</div>
+	<%= render 'headfoot/footer' %>

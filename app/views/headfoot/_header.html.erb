@@ -10,7 +10,20 @@
           <li>MyPage</li>
           <li>ユーザー</li>
           <li>投稿</li>
-          <li>ログアウト</li>
+            <li class=“”>
+            <%= link_to destroy_customer_session_path, method: :delete do %>
+              ログアウト
+            <% end %>
+          </li>
+          <% elsif admin_signed_in? %>
+          <li>MyPage</li>
+          <li>ユーザー</li>
+          <li>投稿</li>
+            <li class=“”>
+            <%= link_to destroy_admin_session_path, method: :delete do %>
+              ログアウト
+            <% end %>
+          </li>
         <% else %>
           <li>HOME</li>
           <li>サイト紹介</li>
