@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  resources :products, only: [:top ,:show, :index]
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',
       passwords:     'admins/passwords',
@@ -9,8 +11,13 @@ Rails.application.routes.draw do
       passwords:     'customers/passwords',
       registrations: 'customers/registrations'
   }
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routiSZng.html
+
   namespace :admins do
-    resources :customers
+   resources :customers
+   resources :products
+   resources :genres, only: [:index ,:create, :edit, :update]
+
   end
 
     get '/customer/cancel', to: 'customers#cancel'
@@ -18,12 +25,6 @@ Rails.application.routes.draw do
     get '/customers/pass', to: 'customers#pass'
     resources :customers do
       patch :customer_status
-    end
-    # get '/customer/edit', to: 'customers#edit'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  namespace :admins do
-    resources :genres, only: [:index ,:create, :edit, :update]
   end
 
 end
