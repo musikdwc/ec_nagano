@@ -17,7 +17,7 @@ Rails.application.routes.draw do
    resources :customers
    resources :products
    resources :genres, only: [:index ,:create, :edit, :update]
-
+   get 'product/top',to: "products#top"
   end
 
     get '/customer/cancel', to: 'customers#cancel'

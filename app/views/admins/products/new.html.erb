@@ -15,7 +15,7 @@
 			<h3>商品説明</h3>
 			<%= f.text_area :product_description %>
 			<h3>価格</h3>
-			<%= f.text_area :non_tax %>
+			<p><%= f.number_field :non_tax %>円</p>
 			<h3>販売ステータス</h3>
 			 <label><%= f.radio_button  :product_status, :有効 %> 販売中 </label>
  			 <label><%= f.radio_button  :product_status, :無効 %> 販売停止中</label>
