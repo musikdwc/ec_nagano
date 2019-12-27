@@ -1,0 +1,19 @@
+<%= render 'headfoot/header' %>
+
+<h1>商品詳細</h1>
+
+<td><%= attachment_image_tag @product, :product_image, :fill, 300, 300, fallback:"No-Image-Available.png",size: :"300x300" %></td>
+<span>商品名</span>
+<span><%= @product.product_name %></span>
+<span>商品説明</span>
+<span><%= @product.product_description %></span>
+<span><%= @product.non_tax %></span>
+<span><%= @product.genre.genre_name %></span>
+
+<%= form_for @addcart, url: customers_carts_path do |f| %>
+  <%= f.select :item_count, ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'], {include_blank: '選択ボックス'} %>
+  <%= f.hidden_field :product_id, :value => @product.id %>
+  <%= f.submit  'カートに追加' %>
+<% end %>
+
+<%= render 'headfoot/footer' %>

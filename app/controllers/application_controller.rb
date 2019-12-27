@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 before_action :configure_permitted_parameters, if: :devise_controller?
+# before_action :current_customer
 	def after_sign_in_path_for(resouces)
 		if customer_signed_in?
 	      	customers_path(current_customer)
@@ -15,6 +16,9 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 			new_admin_session_path
 	    end
 	 end
+	# def current_customer
+	# 	@current_customer = Customer.find_by(id: session[:customer_id])
+	# end
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:lastname, :firstname, :lastkana, :firstkana, :telephone_number, :postal_code, :address, :email, :password, :customer_status])
