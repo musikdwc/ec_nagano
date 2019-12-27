@@ -5,6 +5,7 @@ class Customer < ApplicationRecord
 			:recoverable, :rememberable, :validatable
   has_many :carts
   enum customer_status: {有効: 0, 無効: 1 }
+  	has_many :deliveries
 	validates :lastname, presence: true
 	validates :firstname, presence: true
 	validates :lastkana, presence: true

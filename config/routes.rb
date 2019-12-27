@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     get '/customers/pass', to: 'customers#pass'
     resources :customers do
       patch :customer_status
+      resources :deliveries, only:[:index, :edit, :update, :destroy, :new, :create]
   end
 
 end
