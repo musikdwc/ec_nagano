@@ -1,7 +1,8 @@
 <%= render 'headfoot/header' %>
 
 <h2>ショッピングカート一覧</h2>
-
+ <!-- link_to "カートを空にする", customers_carts_path(@carts), method: :delete %> -->
+<%= link_to "全て削除する", customers_all_destroy_path, method: :delete %>
 <table class="table">
   <thead>
     <tr>
@@ -22,8 +23,7 @@
         <td><%= cart.product.non_tax %>+tax計算</td>
         <td><%= cart.item_count %></td>
         <td><%= cart.product.non_tax %>+tax *item_count</td>
-        <td>link_to 削除</td>
-        <td></td>
+        <td><%= link_to "削除する", customers_cart_path(cart), method: :delete %></td>
       </tr>
      <% end %>
   </tbody>

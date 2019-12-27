@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
   namespace :customers do
     resources :carts, only: [:index ,:create, :update, :destroy]
+    delete '/all_carts_destroy', to: "carts#all_destroy", as: "all_destroy"
   end
 
   resources :products

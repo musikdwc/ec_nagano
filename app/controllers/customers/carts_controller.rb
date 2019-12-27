@@ -14,6 +14,15 @@ class Customers::CartsController < ApplicationController
   end
 
   def destroy
+    @cart = Cart.find(params[:id])
+    @cart.destroy
+    redirect_to customers_carts_path
+  end
+
+  def all_destroy
+    @carts = current_customer.carts
+    @carts.delete_all
+    redirect_to customers_carts_path
   end
 
   def cart_params
