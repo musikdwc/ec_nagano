@@ -1,10 +1,11 @@
 class Customers::CartsController < ApplicationController
   def index
-    @carts = Cart.all
+    @carts = current_customer.carts
   end
 
   def create
     @addcart = Cart.new(cart_params)
+    @addcart.customer_id = current_customer.id
     @addcart.save
     redirect_to customers_carts_path
   end
