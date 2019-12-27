@@ -42,7 +42,8 @@
 	</div>
 	<div class="row mypage-box">
 		<h4 class="col-xs-2">配送先</h4>
-		<a class="btn btn-primary col-xs-2" href="/customers/deliveries" role="button">一覧を見る</a>
+		<!-- <a class="btn btn-primary col-xs-2" href="/customers/deliveries" role="button">一覧を見る</a> -->
+		<%= link_to "一覧を見る", customer_deliveries_path(@customer), class: "btn btn-primary" %>
 	</div>
 	<div class="row">
 		<h4 class="col-xs-2">注文履歴</h4>
