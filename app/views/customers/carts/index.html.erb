@@ -21,7 +21,12 @@
           <%= cart.product.product_name %>
         </td>
         <td><%= cart.product.non_tax %>+tax計算</td>
-        <td><%= cart.item_count %></td>
+        <td>
+          <%= form_for cart, url: customers_cart_path(cart) do |f| %>
+            <%= f.number_field :item_count %>
+            <%= f.submit 'Create Memo' %>
+          <% end %>
+        </td>
         <td><%= cart.product.non_tax %>+tax *item_count</td>
         <td><%= link_to "削除する", customers_cart_path(cart), method: :delete %></td>
       </tr>
