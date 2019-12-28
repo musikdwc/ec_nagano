@@ -11,6 +11,9 @@ class Customers::CartsController < ApplicationController
   end
 
   def update
+    @cart = Cart.find(params[:id])
+    @cart.update(cart_params)
+    redirect_to customers_carts_path
   end
 
   def destroy
