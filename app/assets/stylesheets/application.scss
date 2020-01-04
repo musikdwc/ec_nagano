@@ -16,20 +16,160 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-  body {
-  padding-top: 51px;
+.clearfix::after {
+ content: "";
+ display: block;
+ clear: both;
+}
+
+body{
+  background-color:#fffaf3
+}
+
+/*ヘッダー関連*/
+#head-pic{
+ width:100%;
+ height:400px;
   }
 
-  footer {
-    width: 100%;
-    height: 120px;
+.image1 {
+background-image: url(image1.jpg);
+}
 
-    text-align: center;
-    margin: 0 auto;
-    padding: 40px;
+.image2 {
+background-image: url(image2.jpg);}
 
-    font-size: 15px;
+.image3 {
+background-image: url(image3.jpg);}
+
+.image4 {
+background-image: url(image4.jpg);}
+
+.image5 {
+background-image: url(image5.jpg);
+}
+/**/
+.navbar-default{
+  background-color: #470707;
+  width: 100%;
+  height: 130px;
+  text-align: center;
   }
+
+.container{
+  width:100%;
+  margin: 0 auto;
+  }
+
+.headicon {
+    background-image: url(logo.jpg);
+    background-size: contain;
+    width: 133px;
+    height: 129px;
+    float: left;
+    margin-top: -40px;
+  }
+.active{
+  float: left;
+  font-size:38px;
+  padding:0px 14px 14px 14px;
+}
+
+ul{
+list-style: none;
+display: inline-block;
+margin-top: 40px;
+}
+
+/*ヘッダー関連ここまで
+
+/*サイドバー設定*/
+.sidebar{
+width: 20%;
+float:left;
+}
+.sidebartop{
+font-size:28px;
+}
+/*/サイドバー設定ここまで*/
+
+/*商品一覧関連*/
+.indexpage{
+  margin: 0 auto;
+  float: left
+}
+
+.indexitems{
+  width:80%;
+  margin: 0 auto;
+  padding: 0 20px 0 15px;
+  text-align:center;
+  float: left;
+}
+
+.indexeachitems{
+  float:left;
+  padding: 20px;
+}
+
+.product_name{
+font-size:20px;
+}
+
+.product_price{
+  font-size:20px;
+}
+/*商品入り一覧関連ここまで*/
+  /*商品詳細画面関連*/
+
+.itemdetails{
+  margin:0 auto;
+  text-align: center;
+  width:80%;
+}
+.description{
+  float: left;
+  width: 400px;
+  height: 300px;
+  margin: 60px 0px 0px 60px;
+}
+.itemname{
+  font-size: 40px;
+}
+.itemdescription{
+  font-size :25px;
+}
+.itemprice{
+  font-size: 28px;
+}
+/*商品詳細画面ここまで*/
+
+/*管理者商品詳細*/
+.admin_description{
+margin-top:60px
+}
+.admin_show_link{
+ margin-right:240px;
+ font-size: 48px;
+ text-align: right;
+}
+/*管理者商品詳細画面ここまで*/
+
+/*管理者商品詳細＆編集*/
+.text_span{
+  margin-left: 14px;
+}
+.text_break{
+  margin:15px 0px 15px 0px;
+}
+/*管理者商品詳細＆編集kokomade*/
+
+/*管理者商品編集*/
+.toindex{
+text-align:center;
+margin-right:-100px;
+}
+/*管理者商品編集ここまで*/
 
   .cancel-button{
     padding: 50px;
@@ -78,3 +218,19 @@
   .submit-btn{
     margin-top: 40px;
   }
+
+
+  footer {
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    margin:0 auto;
+    padding: 40px;
+    font-size: 15px;
+    float: left;
+  }
+
+.active > a:visited{
+  color:white;
+  text-decoration:none
+}

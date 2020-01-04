@@ -1,4 +1,43 @@
-<h1>商品詳細</h1>
+
+<h1><center>商品詳細画面</center></h1>
+
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-1">
+    </div>
+       <div class="col-xs-3">
+         <h2>商品画像</h2>
+           <%= attachment_image_tag @product, :product_image, :fill, 300, 300, fallback:"No-Image-Available.png",size: :"300x300" %>
+             </div>
+               <div class="col-xs-8">
+                 <div class="admin_description">
+                   <h4>商品名:<span class="text_span"><%= @product.product_name %></span></h4>
+                       <h4 class="text_break">商品説明　<br><%= @product.product_description %></h4>
+                            <h4>販売中/販売停止中:<span = class="text_span"><%= @product.product_status %></span></h4>
+                               <h4>価格:<span class="text_span"><%= @product.non_tax %>円</span></h4>
+                                  <h4>ジャンル:<span class= "text_span"><%= @product.genre.genre_name %></span></h4>
+                </div>
+              </div>
+  </div>
+ </div>
+
+<div class="admin_show_link">
+<button type="button" class="btn btn-default btn-lg">
+<%= link_to "edit", edit_admins_product_path(@product) %>
+</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <h1>商品詳細</h1>
 <table class='table'>
 <thead>
   <tr>
@@ -24,4 +63,3 @@
 </table>
 
 
-<%= link_to "edit", edit_admins_product_path(@product) %>

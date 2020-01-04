@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+      root to: "products#top"
   resources :products, only: [:top ,:show, :index]
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',

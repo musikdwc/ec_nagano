@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  # あとでbefore_action :authenticate_user!を追加
+  before_action :authenticate_customer!, { except: [:top, :about, :index, :show] }
+  def top
+  end
   def index
   	@products = Product.all
   end

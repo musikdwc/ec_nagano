@@ -2,7 +2,7 @@ class Admins::ProductsController < ApplicationController
  # あとでbefore_action :authenticate_user!を追加
   def index
     @product_all = Product.all
-    @genre = Genre.all
+
   end
 
   def show
@@ -16,7 +16,6 @@ class Admins::ProductsController < ApplicationController
   end
 
   def create
-
     @product = Product.new(products_params)
     if @product.save
       redirect_to admins_product_path(@product.id)
