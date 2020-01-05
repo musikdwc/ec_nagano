@@ -1,0 +1,91 @@
+<%= render 'headfoot/header' %>
+<script>
+  function post_mine_group(ischecked){
+    if(ischecked == true){
+      document.getElementsByClassName("post_mine").disabled = false;
+    } else {
+      document.getElementsByClassName("post_mine").disabled = true;
+    }
+  }
+
+  function post_deli_group(ischecked){
+    if(ischecked == true){
+      document.getElementsByClassName("post_deli").disabled = false;
+    } else {
+      document.getElementsByClassName("post_deli").disabled = true;
+    }
+  }
+
+  function post_new_group(ischecked){
+    if(ischecked == true){
+      document.getElementsByClassName("post_new").disabled = false;
+    } else {
+      document.getElementsByClassName("post_new").disabled = true;
+    }
+  }
+  </script>
+
+<div class="container">
+	<h3>購入情報入力</h3>
+	<div class="row">
+		<h3>支払方法</h3>
+		<%= form_for :order, url:about_customers_orders_path(@customer) do |f| %>
+		<label><%= f.radio_button :payment_method, :クレジットカード %>　クレジットカード</label><br>
+		<label><%= f.radio_button :payment_method, :現金振込 %>　現金振込</label>
+	</div>
+
+		<h3>お届け先</h3>
+
+	<div class="row" style="padding-bottom: 30px;">
+    	<label>
+    		<input type="radio" class ="post_mine_group" name="post" onClick="post_mine_group(this.checked);"/>　ご自身の住所
+    	</label>
+    			<input type="hidden" value= @customer.address name="post" disabled="disabled" class= "post_mine">
+		    	<input type="hidden" value= @customer.postal_code name="post" disabled="disabled" class= "post_mine">
+		    	<input type="hidden" value= @customer.name name="post" disabled="disabled" class= "post_mine"><br>
+		      　　〒<%= @customer.postal_code %>
+		    	<%= @customer.address %>
+		    	<%= @customer.lastname %><%= @customer.firstname %>
+	</div>
+
+	<div class="row" style="padding-bottom: 30px;">
+	    <label>
+	    	<input type="radio" class="post_deli_group" name="post" onClick="deli_post(this.checked);"/>　登録済住所から選択
+	    </label>
+	    	<br>
+			<%= f.select :order_post, @deliveries.collect {|d| ["〒" + d.delivery_post + " " + d.delivery_address + "　" + d.delivery_name, d.id]},{class: "post_deli"} %>
+
+	</div>
+
+	<div class="row" style="padding-bottom: 30px;">
+		<label>
+			<input type="radio" class="post_new_group" name="post" onClick="new_post(this.checked);"/>　新しいお届け先
+		</label>
+		<table>
+	        <tr>
+	          <th class="col-xs-2">郵便番号</th>
+	            <td style="padding: 10px;">
+	            <%= f.text_field :order_post,class: "post_new", autofocus: true, autocomplete: "1234567" %>
+	            </td>
+	        </tr>
+	        <tr>
+	          <th class="col-xs-2">住所</th>
+	            <td style="padding: 10px;">
+	              <%= f.text_field :deliver_to, class: "post_new", autofocus: true, autocomplete: "住所", style: "width: 100%;" %>
+	            </td>
+	        </tr>
+	        <tr>
+	          <th class="col-xs-2">宛名</th>
+	            <td style="padding: 10px;">
+	              <%= f.text_field :shipping_name, class: "post_new", autofocus: true, autocomplete: "宛名", style: "width: 70%;" %>
+	            </td>
+	        </tr>
+	    </table>
+	    <div style = "padding-top: 30px;">
+	    <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+	    </div>
+	    <% end %>
+	</div>
+</div>
+
+<%= render 'headfoot/footer' %>
