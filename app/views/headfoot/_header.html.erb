@@ -17,17 +17,17 @@
             <ul class="clearfix">
               <li class="headicon"></li>
              <% if customer_signed_in? %>
-             <li class="active"><%= link_to "Home", root_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
-             <li class="active"><%= link_to "About", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
-             <li class="active"><%= link_to "マイ・ページ",customers_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-user' %></li>
+             <li class="active"><%= link_to "TOP", root_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
+             <li class="active"><%= link_to "会社概要", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
+             <li class="active"><%= link_to "マイページ",customers_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-user' %></li>
              <li class="active"><%= link_to "商品一覧", products_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-book' %></li>
              <li class="active"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
             <% else %>
-              <li class="active"><%= link_to "Home", products_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-home' %></li>
-              <li class="active"><<%= link_to "About", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
+              <li class="active"><%= link_to "TOP", products_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-home' %></li>
+              <li class="active"><%= link_to "会社概要", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
               <li class="active"><%= link_to "商品一覧", products_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-search' %></li>
-              <li class="active"><%= link_to "サインイン", new_customer_registration_path, class: 'glyphicon glyphicon-log-in' %></li>
-              <li class="active"><%= link_to "ログイン", new_customer_session_path, class: 'glyphicon glyphicon-log-in' %></li>
+              <li class="active"><%= link_to "会員登録", new_customer_registration_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-log-in' %></li>
+              <li class="active"><%= link_to "ログイン", new_customer_session_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-log-in' %></li>
         <% end %>
              </ul>
 
