@@ -191,7 +191,7 @@ margin-right:-100px;
     width: 10%;
   }
 
-  .table-bordered{
+  .customer-table{
     padding: 15px;
     height: 300px;
   }
@@ -245,3 +245,30 @@ margin-right:-100px;
   color:white;
   text-decoration:none
 }
+
+  .delivery-table{
+    height: 200px;
+  }
+  .delivery-tr{
+    height: 100px;
+  }
+  .delivery-submit{
+  padding-top: 260px;
+  padding-left: 50px;
+  }
+  .delivery-th{
+  background-color: silver;
+  }
+  .delivery-index{
+  padding-top: 100px;
+  }
+  .deli-post-field{
+  width: 100px;
+  }
+  .deli-address-field{
+  width: 300px;
+  }
+  .deli-name-field{
+  width: 200px;
+  }
+
