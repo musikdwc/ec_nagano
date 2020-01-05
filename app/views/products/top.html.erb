@@ -16,14 +16,14 @@
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8">
 				<% @products.each do |product| %>
-				<div class="topindex">
-					<%= link_to product_path(product.id) do %>
-					<%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
-					<% end %>
-					<p class="product_name"><%= product.product_name %></p>
-					<p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
+				  <div class="topindex">
+						<%= link_to product_path(product.id) do %>
+							<%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
+						<% end %>
+						<p class="product_name"><%= product.product_name %></p>
+						<p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
 				 	</div>
-				 <% end %>
+				<% end %>
 			</div>
 			<div class="col-sm-2">
 		</div>

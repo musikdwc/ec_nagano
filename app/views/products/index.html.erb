@@ -1,30 +1,33 @@
 <div id="head-pic">
-   <div id="theTarget">
+  <div id="theTarget">
     <div class="image1"></div>
     <div class="image2"></div>
     <div class="image3"></div>
     <div class="image4"></div>
     <div class="image5"></div>
-   </div>
- </div>
+  </div>
+</div>
 
 <%= render 'headfoot/header' %>
 <%= render 'headfoot/sidebar' %>
- <body>
- 	<div class="container indexitems">
- 	  <div class="row">
- 		<div class="col-sm-12">
- 			<% @products.each do |product| %>
- 			  <div class="indexeachitems">
- 				<%= link_to product_path(product.id) do %>
- 	  			  <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
+
+
+<body>
+  <div class="container indexitems">
+    <div class="row">
+      <div class="col-sm-12">
+        <% @products.each do |product| %>
+          <div class="indexeachitems">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
             <% end %>
-                    <p class="product_name"><%= product.product_name %></p>
-        			  <p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
-               </div>
- 	        <% end %>
-        </div>
-       </div>
+            <p class="product_name"><%= product.product_name %></p>
+            <p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
+          </div>
+        <% end %>
+      </div>
     </div>
- </body>
-	<%= render 'headfoot/footer' %>
+  </div>
+</body>
+
+<%= render 'headfoot/footer' %>

@@ -17,9 +17,9 @@
             <ul class="clearfix">
               <li class="headicon"></li>
              <% if customer_signed_in? %>
-             <li class="active"><%= link_to "Home", user_path(current_customer), data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
-             <li class="active"><<%= link_to "About", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
-             <li class="active"><%= link_to "マイ・ページ",users_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-user' %></li>
+             <li class="active"><%= link_to "Home", root_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
+             <li class="active"><%= link_to "About", about_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-home' %></li>
+             <li class="active"><%= link_to "マイ・ページ",customers_path, data: {"turbolinks" => false},  class: 'glyphicon glyphicon-user' %></li>
              <li class="active"><%= link_to "商品一覧", products_path, data: {"turbolinks" => false}, class: 'glyphicon glyphicon-book' %></li>
              <li class="active"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'glyphicon glyphicon-log-in' %></li>
             <% else %>
