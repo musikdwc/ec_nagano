@@ -9,24 +9,41 @@ class Customers::OrdersController < ApplicationController
 	def about
 	@carts = current_customer.carts
     @tax = Tax.find(1).tax
+    	if params[:post1] == "post_mine_group"
+			@customer = current_customer
+ 			@order.order_post = @customer.postal_code
+ 			@order.deliver_to = @customer.address
+ 			@order.shipping_name = @customer.lastname + @customer.firstname
+    	elsif params[:post2] == "post_deli_group"
+    		@customer = current_customer
+      		@order.order_post = @customer.delivery.delivery_post
+ 			@order.deliver_to = @customer.delivery.delivery_address
+ 			@order.shipping_name = @customer.delivery.delivery_name
+			@order.save
+      	elsif params[:post3] == "post_new_group"
+		    @customer = current_customer
+		end
     end
 	def thanks
-	@customer = current_customer
+		@customer = current_customer
 	end
 	def new
 		@customer = current_customer
 		@deliveries = current_customer.deliveries
 	end
 	def create
-		if	@order = Order.new
+		if
+		    @customer = current_customer
+      		@order = Order.new
 			@order.save
 		    @customer = current_customer
-		    binding.pry
 		    redirect_to customers_thanks_path
-		else
-		   render :new
-		end
+   		else
+      		render :new
+    	end
+
 	end
+
 
 private
 

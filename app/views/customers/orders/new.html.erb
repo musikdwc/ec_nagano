@@ -1,30 +1,4 @@
 <%= render 'headfoot/header' %>
-<script>
-  function post_mine_group(ischecked){
-    if(ischecked == true){
-      document.getElementsByClassName("post_mine").disabled = false;
-    } else {
-      document.getElementsByClassName("post_mine").disabled = true;
-    }
-  }
-
-  function post_deli_group(ischecked){
-    if(ischecked == true){
-      document.getElementsByClassName("post_deli").disabled = false;
-    } else {
-      document.getElementsByClassName("post_deli").disabled = true;
-    }
-  }
-
-  function post_new_group(ischecked){
-    if(ischecked == true){
-      document.getElementsByClassName("post_new").disabled = false;
-    } else {
-      document.getElementsByClassName("post_new").disabled = true;
-    }
-  }
-  </script>
-
 <div class="container">
 	<h3>購入情報入力</h3>
 	<div class="row">
@@ -38,11 +12,11 @@
 
 	<div class="row" style="padding-bottom: 30px;">
     	<label>
-    		<input type="radio" class ="post_mine_group" name="post" onClick="post_mine_group(this.checked);"/>　ご自身の住所
+    		<input type="radio" id ="post1"　value= "post_mine_group" >　ご自身の住所
     	</label>
-    			<input type="hidden" value= @customer.address name="post" disabled="disabled" class= "post_mine">
-		    	<input type="hidden" value= @customer.postal_code name="post" disabled="disabled" class= "post_mine">
-		    	<input type="hidden" value= @customer.name name="post" disabled="disabled" class= "post_mine"><br>
+    			<input type="hidden" value= @customer.address name="post"　class= "post_mine">
+		    	<input type="hidden" value= @customer.postal_code name="post" class= "post_mine">
+		    	<input type="hidden" value= @customer.name name="post" class= "post_mine"><br>
 		      　　〒<%= @customer.postal_code %>
 		    	<%= @customer.address %>
 		    	<%= @customer.lastname %><%= @customer.firstname %>
@@ -50,7 +24,7 @@
 
 	<div class="row" style="padding-bottom: 30px;">
 	    <label>
-	    	<input type="radio" class="post_deli_group" name="post" onClick="deli_post(this.checked);"/>　登録済住所から選択
+	    	<input type="radio" id ="post2" name="post" value ="post_deli_group" >　登録済住所から選択
 	    </label>
 	    	<br>
 			<%= f.select :order_post, @deliveries.collect {|d| ["〒" + d.delivery_post + " " + d.delivery_address + "　" + d.delivery_name, d.id]},{class: "post_deli"} %>
@@ -59,7 +33,7 @@
 
 	<div class="row" style="padding-bottom: 30px;">
 		<label>
-			<input type="radio" class="post_new_group" name="post" onClick="new_post(this.checked);"/>　新しいお届け先
+			<input type="radio" id="post3" name="post" value="post_new_group" >　新しいお届け先
 		</label>
 		<table>
 	        <tr>
