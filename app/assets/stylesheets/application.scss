@@ -89,7 +89,7 @@ margin-top: 40px;
 margin: 0 auto;
 }
 .topindex{
-  padding: 0 28px 0 15px;
+  padding: 0 20px 0 15px;
   margin: 0 auto;
   float: left;
 }
@@ -102,8 +102,11 @@ float:left;
 .sidebartop{
 font-size:28px;
 }
-
+.sidebar-contents{
+  font-size:22px;
+}
 /*サイドバー設定ここまで*/
+
 /*商品一覧関連*/
 .indexpage{
   margin: 0 auto;
@@ -114,8 +117,6 @@ font-size:28px;
   width:80%;
   margin: 0 auto;
   padding: 0 20px 0 15px;
-  text-align:center;
-  float: left;
 }
 
 .indexeachitems{
