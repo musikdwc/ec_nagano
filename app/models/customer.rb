@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
 	devise :database_authenticatable, :registerable,
 			:recoverable, :rememberable, :validatable
   has_many :carts
+  has_many :orders
   enum customer_status: {有効: 0, 無効: 1 }
   	has_many :deliveries
 	validates :lastname, presence: true

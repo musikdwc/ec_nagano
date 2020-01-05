@@ -55,16 +55,18 @@
 	</div>
 	<div class="row">
 		<h3>お届け先</h3>
-	  〒<%= @order.order_post %>
-        <%= @order.deliver_to %>
-	    <%= @order.shipping_name %>
+		<div>
+		  〒<%= @order.order_post %>
+	        <%= @order.deliver_to %>
+		    <%= @order.shipping_name %>
+			<%= form_for :order, url:customers_orders_path(@customer) do |f| %>
+		    <%= f.hidden_field :payment_method %>
+			<%= f.hidden_field :order_post %>
+			<%= f.hidden_field :deliver_to %>
+			<%= f.hidden_field :shipping_name %>
+			<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+			<% end %>
+		</div>
 	</div>
-		<%= form_for :order, url:customers_orders_path(@customer) do |f| %>
-	    <%= f.hidden_field :payment_method %>
-		<%= f.hidden_field :order_post %>
-		<%= f.hidden_field :deliver_to %>
-		<%= f.hidden_field :shipping_name %>
-		<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
-		<% end %>
 </div>
 <%= render 'headfoot/footer' %>
