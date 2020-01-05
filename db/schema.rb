@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_28_091207) do
+ActiveRecord::Schema.define(version: 2020_01_04_063450) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2019_12_28_091207) do
   create_table "carts", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "product_id"
-    t.integer "item_count"
+    t.integer "item_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,11 +78,11 @@ ActiveRecord::Schema.define(version: 2019_12_28_091207) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "cart_id"
     t.integer "shipping_cost", default: 800, null: false
     t.integer "production_status", default: 0, null: false
     t.integer "order_status", default: 0, null: false
     t.integer "payment_method", default: 0, null: false
+    t.integer "order_post"
     t.string "deliver_to"
     t.string "shipping_name"
     t.datetime "created_at", null: false
@@ -101,9 +101,9 @@ ActiveRecord::Schema.define(version: 2019_12_28_091207) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.integer "tax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "tax", precision: 6, scale: 2
   end
 
 end

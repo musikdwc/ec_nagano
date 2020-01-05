@@ -14,16 +14,22 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routiSZng.html
 
   namespace :admins do
-   resources :customers
-   resources :products
-   resources :genres, only: [:index ,:create, :edit, :update]
+    resources :customers
+    resources :products
+    resources :genres, only: [:index ,:create, :edit, :update]
 
   end
   namespace :customers do
+    get '/thanks', to: 'orders#thanks'
     resources :carts, only: [:index ,:create, :update, :destroy]
     delete '/all_carts_destroy', to: "carts#all_destroy", as: "all_destroy"
+    resources :orders, only: [:new, :create] do
+      collection do
+        post :new,path: :new, as: :new
+        post :about
+      end
+    end
   end
-
   resources :products
 
     get '/customer/cancel', to: 'customers#cancel'

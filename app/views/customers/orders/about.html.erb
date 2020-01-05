@@ -1,0 +1,70 @@
+<%= render 'headfoot/header' %>
+<div class="container">
+	<div class="row">
+		<% @carts.each do |cart| %>
+		<table class="table-border">
+			<tr>
+				<th class="col-xs-4">商品名</th>
+				<th class="col-xs-1">単価（税込）</th>
+				<th class="col-xs-1">数量</th>
+				<th class="col-xs-1">小計</th>
+			</tr>
+
+			<tr>
+				<td>
+					<%= attachment_image_tag @product, :product_image, :fill, 50, 50, fallback:"No-Image-Available.png",size: :"50x50" %>
+              		<%= cart.product.product_name %>
+				</td>
+				<td>
+            		<%= (cart.product.non_tax * @tax).floor %>
+				</td>
+				<td>
+					<%= cart.item_count %>
+				</td>
+				<td>
+					<%= (cart.product.non_tax * @tax * cart.item_count).floor %>
+				</td>
+			</tr>
+		</table>
+		<% end %>
+		<table>
+			<tr>
+				<th>送料</th>
+				<td><%= @order.shipping_cost %></td>
+			</tr>
+			<tr>
+				<th>商品合計</th>
+				<td>
+					<% sum = 0 %>
+		            <% @carts.each do |cart| %>
+		            <% sub_total = (cart.product.non_tax * @tax * cart.item_count).floor %>
+		            <% sum += sub_total %>
+		            <% end %>
+		            <%= sum %>
+				</td>
+			</tr>
+			<tr>
+				<th>請求金額</th>
+				<td><%= sum + @order.shipping_cost %></td>
+			</tr>
+		</table>
+	</div>
+	<div class="row">
+		<h3>支払方法</h3>
+		<%= @order.payment_method %>
+	</div>
+	<div class="row">
+		<h3>お届け先</h3>
+	  〒<%= @order.order_post %>
+        <%= @order.deliver_to %>
+	    <%= @order.shipping_name %>
+	</div>
+		<%= form_for :order, url:customers_orders_path(@customer) do |f| %>
+	    <%= f.hidden_field :payment_method %>
+		<%= f.hidden_field :order_post %>
+		<%= f.hidden_field :deliver_to %>
+		<%= f.hidden_field :shipping_name %>
+		<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+		<% end %>
+</div>
+<%= render 'headfoot/footer' %>
