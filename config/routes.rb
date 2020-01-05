@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
       root to: "products#top"
+   get '/about',to: 'products#about'
   resources :products, only: [:top ,:show, :index]
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',

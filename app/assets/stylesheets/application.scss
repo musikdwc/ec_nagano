@@ -81,7 +81,18 @@ display: inline-block;
 margin-top: 40px;
 }
 
-/*ヘッダー関連ここまで
+/*ヘッダー関連ここまで*/
+
+/*トップページ関係*/
+
+.topitem{
+margin: 0 auto;
+}
+.topindex{
+  padding: 0 28px 0 15px;
+  margin: 0 auto;
+  float: left;
+}
 
 /*サイドバー設定*/
 .sidebar{
@@ -91,8 +102,8 @@ float:left;
 .sidebartop{
 font-size:28px;
 }
-/*/サイドバー設定ここまで*/
 
+/*サイドバー設定ここまで*/
 /*商品一覧関連*/
 .indexpage{
   margin: 0 auto;
