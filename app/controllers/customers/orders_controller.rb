@@ -1,5 +1,5 @@
 class Customers::OrdersController < ApplicationController
-	before_action :order_params, only: [:about]
+	# before_action :order_params
 	def index
 
 	end
@@ -7,21 +7,24 @@ class Customers::OrdersController < ApplicationController
 
 	end
 	def about
-	@carts = current_customer.carts
-    @tax = Tax.find(1).tax
-    	if params[:post1] == "post_mine_group"
-			@customer = current_customer
- 			@order.order_post = @customer.postal_code
- 			@order.deliver_to = @customer.address
- 			@order.shipping_name = @customer.lastname + @customer.firstname
-    	elsif params[:post2] == "post_deli_group"
-    		@customer = current_customer
-      		@order.order_post = @customer.delivery.delivery_post
- 			@order.deliver_to = @customer.delivery.delivery_address
- 			@order.shipping_name = @customer.delivery.delivery_name
-			@order.save
-      	elsif params[:post3] == "post_new_group"
-		    @customer = current_customer
+		@customer = current_customer
+		@order = @customer.orders.new
+		@carts = current_customer.carts
+	    @tax = Tax.find(1).tax
+		if params[:post] == "post_mine_group"
+			@order.order_post = @customer.postal_code
+			@order.deliver_to = @customer.address
+			@order.shipping_name = @customer.lastname + @customer.firstname
+		elsif params[:post] == "post_deli_group"
+			delivery = Delivery.find(params[:registered_address_id].to_i)
+  			@order.order_post = delivery.delivery_post
+			@order.deliver_to = delivery.delivery_address
+			@order.shipping_name = delivery.delivery_name
+	  	elsif
+	  		params[:post] == "post_new_group"
+	  		@order.order_post = params[:order_post]
+	  		@order.deliver_to = params[:deliver_to]
+	  		@order.shipping_name = params[:shipping_name]
 		end
     end
 	def thanks
@@ -48,6 +51,6 @@ class Customers::OrdersController < ApplicationController
 private
 
 	def order_params
-	    @order = Order.new(params.require(:order).permit(:shipping_cost, :production_status, :order_status, :payment_method, :deliver_to, :shipping_name, :order_post).merge(customer_id: current_customer.id))
+		params.require(:order).permit(:shipping_cost, :production_status, :order_status, :payment_method, :deliver_to, :shipping_name, :order_post)
 	end
 end

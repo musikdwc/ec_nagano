@@ -3,60 +3,64 @@
 	<h3>購入情報入力</h3>
 	<div class="row">
 		<h3>支払方法</h3>
-		<%= form_for :order, url:about_customers_orders_path(@customer) do |f| %>
-		<label><%= f.radio_button :payment_method, :クレジットカード %>　クレジットカード</label><br>
-		<label><%= f.radio_button :payment_method, :現金振込 %>　現金振込</label>
+		<%= form_tag(about_customers_orders_path(@customer), method: :post)  do %>
+		<label><%= radio_button_tag(:payment_method, :クレジットカード, true ) %>　クレジットカード</label><br>
+		<label><%= radio_button_tag(:payment_method, :現金振込) %>　現金振込</label>
 	</div>
 
 		<h3>お届け先</h3>
 
 	<div class="row" style="padding-bottom: 30px;">
     	<label>
-    		<input type="radio" id ="post1"　value= "post_mine_group" >　ご自身の住所
+    		<%= radio_button_tag(:post, "post_mine_group", true) %>
+    		<!-- <input type="radio" id ="post1" name="post" value= "post_mine_group" >　 -->ご自身の住所
     	</label>
-    			<input type="hidden" value= @customer.address name="post"　class= "post_mine">
-		    	<input type="hidden" value= @customer.postal_code name="post" class= "post_mine">
-		    	<input type="hidden" value= @customer.name name="post" class= "post_mine"><br>
-		      　　〒<%= @customer.postal_code %>
+    			<%= hidden_field_tag :customer_address, @customer.address %>
+    			<%= hidden_field_tag :customer_postal_code, @customer.postal_code %>
+    			<%= hidden_field_tag :customer_name, @customer.lastname %>
+    			<%= hidden_field_tag :customer_name, @customer.firstname %>
+		      　〒<%= @customer.postal_code %>
 		    	<%= @customer.address %>
 		    	<%= @customer.lastname %><%= @customer.firstname %>
 	</div>
 
 	<div class="row" style="padding-bottom: 30px;">
 	    <label>
-	    	<input type="radio" id ="post2" name="post" value ="post_deli_group" >　登録済住所から選択
+	    	<%= radio_button_tag(:post, "post_deli_group") %>
+	    	<!-- <input type="radio" id ="post2" name="post" value ="post_deli_group" > -->　登録済住所から選択
 	    </label>
 	    	<br>
-			<%= f.select :order_post, @deliveries.collect {|d| ["〒" + d.delivery_post + " " + d.delivery_address + "　" + d.delivery_name, d.id]},{class: "post_deli"} %>
+			<%= select_tag :registered_address_id, options_for_select(@deliveries.collect { |d| ["〒#{d.delivery_post} #{d.delivery_address} #{d.delivery_name}", d.id] }) %>
 
 	</div>
 
 	<div class="row" style="padding-bottom: 30px;">
 		<label>
-			<input type="radio" id="post3" name="post" value="post_new_group" >　新しいお届け先
+			<%= radio_button_tag(:post, "post_new_group") %>
+			<!-- <input type="radio" id="post3" name="post" value="post_new_group" > -->　新しいお届け先
 		</label>
 		<table>
 	        <tr>
 	          <th class="col-xs-2">郵便番号</th>
 	            <td style="padding: 10px;">
-	            <%= f.text_field :order_post,class: "post_new", autofocus: true, autocomplete: "1234567" %>
+	            <%= text_field_tag :order_post, "", {placeholder: :"123-4567", class: "post_new"} %>
 	            </td>
 	        </tr>
 	        <tr>
 	          <th class="col-xs-2">住所</th>
 	            <td style="padding: 10px;">
-	              <%= f.text_field :deliver_to, class: "post_new", autofocus: true, autocomplete: "住所", style: "width: 100%;" %>
+	              <%= text_field_tag :deliver_to, "", {placeholder: :"東京都", class: "post_new", style: "width: 100%;"} %>
 	            </td>
 	        </tr>
 	        <tr>
 	          <th class="col-xs-2">宛名</th>
 	            <td style="padding: 10px;">
-	              <%= f.text_field :shipping_name, class: "post_new", autofocus: true, autocomplete: "宛名", style: "width: 70%;" %>
+	              <%= text_field_tag :shipping_name, "", {placeholder: :"渋谷", class: "post_new", style: "width: 100%;"}  %>
 	            </td>
 	        </tr>
 	    </table>
 	    <div style = "padding-top: 30px;">
-	    <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+	    <%= submit_tag("確認画面へ進む", class: "btn btn-primary") %>
 	    </div>
 	    <% end %>
 	</div>
