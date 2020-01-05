@@ -2,7 +2,7 @@ class Admins::ProductsController < ApplicationController
  # あとでbefore_action :authenticate_user!を追加
   def index
     @product_all = Product.all
-    @genre = Genre.all
+
   end
 
   def show
@@ -16,7 +16,6 @@ class Admins::ProductsController < ApplicationController
   end
 
   def create
-
     @product = Product.new(products_params)
     if @product.save
       redirect_to admins_product_path(@product.id)
@@ -42,6 +41,8 @@ class Admins::ProductsController < ApplicationController
 
 
   def top
+      # range = Date.today.beginning_of_day..Date.today.end_of_day
+      # @count = Order.where(created_at: range)
   end
 
 

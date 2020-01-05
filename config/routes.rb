@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+      root to: "products#top"
+   get '/about',to: 'products#about'
   resources :products, only: [:top ,:show, :index]
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',
@@ -17,7 +18,7 @@ Rails.application.routes.draw do
    resources :customers
    resources :products
    resources :genres, only: [:index ,:create, :edit, :update]
-
+   get 'product/top',to: "products#top"
   end
   namespace :customers do
     resources :carts, only: [:index ,:create, :update, :destroy]
