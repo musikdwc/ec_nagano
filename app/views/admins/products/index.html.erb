@@ -1,26 +1,34 @@
-<h1>商品一覧</h1>
+<h1><center>商品一覧</center></h1>
 
-<%= link_to "new",new_admins_product_path %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>商品名</th>
- 	     	<th>税抜き価格</th>
- 		    <th>ジャンル</th>
- 		    <th>ステータス</th>
- 	    </tr>
-    </thead>
 
- 	<% @product_all.each do |f| %>
-	  <tr>
-    <td><%=link_to f.product_name, admins_product_path(f.id) %></td>
-    <td><%= f.non_tax%></td>
-    <td><%= f.product.genre.genre_name %></td>
-    <td><%= f.product_status %></td>
- 	  </tr>
-    <% end %>
- </tbody>
-</table>
-</div>
-</div>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+    </div>
+      <div class="col-sm-9">
+       <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+     	    <th>税抜き価格</th>
+     		<th>ジャンル</th>
+     		<th>ステータス</th>
+     	  </tr>
+        </thead>
+
+     	<% @product_all.each do |index| %>
+    <tbody>
+    	  <tr>
+            <td width = "60"><%= index.id%></td>
+            <td width = "280"><%=link_to index.product_name, admins_product_path(index.id) %></td>
+            <td width = "100"><%= index.non_tax%></td>
+            <td width = "300"><%= index.genre.genre_name %></td>
+            <td><%= index.product_status %></td>
+     	  </tr>
+        <% end %>
+    </tbody>
+         </table>
+       </div>
+          <div class="col-sm-1"><p style = "margin-top:-20px; margin-left:-80px;" ><%= link_to image_tag('plus.png'), new_admins_product_path %></p>
+          </div>
