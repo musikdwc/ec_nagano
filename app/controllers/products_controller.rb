@@ -17,9 +17,6 @@ class ProductsController < ApplicationController
   end
 
 
-  def top
-  end
-
   def product_params
     params.require(:product).permit(:genre_id, :product_name, :non_tax, :product_image_id, :product_description, :product_status)
   end
