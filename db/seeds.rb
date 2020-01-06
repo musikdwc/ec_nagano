@@ -4,7 +4,7 @@
 # Examples:
 
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-Character.create(name: 'Luke', movie: movies.first)
+# Character.create(name: 'Luke', movie: movies.first)
 Customer.create(email: 'test1@test.com', password: '111111')
 Customer.create(email: 'test2@test.com', password: '222222')
 Customer.create(email: 'test3@test.com', password: '333333')
@@ -19,4 +19,4 @@ Admin.create!(
 
 
 
-Taxes.create(tax: 1.1)
+Tax.create(tax: 1.1)
