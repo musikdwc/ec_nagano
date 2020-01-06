@@ -14,25 +14,23 @@
 <body>
   <div class="container indexitems">
     <div class="row">
-      <div class="col-md-12">
-          <div class="indexeachitems　clearfix">
-            <% @products.each do |product| %>
-              <%= link_to product_path(product.id) do %>
-                <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
-                <p class="product_name"><%= product.product_name %></p>
-                <p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
-              <% end %>
+      <div class="col-sm-9">
+        <% @products.each do |product| %>
+          <div class="indexeachitems">
+            <%= link_to product_path(product.id) do %>
+              <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
             <% end %>
+            <p class="product_name"><%= product.product_name %></p>
+            <p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
           </div>
+        <% end %>
       </div>
     </div>
   </div>
+  <div class="col-sm-3"></div>
+ <%= paginate @products, class: "paginate" %>
 </body>
 
 <%= render 'headfoot/footer' %>
-
-
-
-
 
 <!-- モデルに書く子kとで -->

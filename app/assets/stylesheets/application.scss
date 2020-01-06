@@ -105,23 +105,24 @@ font-size:28px;
 .sidebar-contents{
   font-size:22px;
 }
+.sidebar-link{
+  font-size:20px;
+}
 /*サイドバー設定ここまで*/
 
 /*商品一覧関連*/
-.indexpage{
-  margin: 0 auto;
-  float: left
-}
 
 .indexitems{
   width:80%;
   margin: 0 auto;
-  padding: 0 20px 0 15px;
+  float: left;
+  display: inline-block;
 }
 
 .indexeachitems{
   float:left;
-  padding: 20px;
+  padding: 0 20px 0 15px;
+  text-align: center;
 }
 
 .product_name{

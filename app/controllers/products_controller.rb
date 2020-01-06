@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_customer!, { except: [:top, :about, :index, :show, :search_genre] }
   def top
-    @products = Product.all
+    @products = Product.all.page(params[:page]).reverse_order
   end
 
   def about
@@ -9,11 +9,7 @@ class ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
-  	@products = Product.all
-    #  @cookies = Product.where(:genre_id:1)L
-    # @cakes = Product.where(:genre_id:2)
-    # @bakes = Product.where(:genre_id:3)
-    # @seasons = Product.where(:genre_id:4)
+  	@products = Product.all.page(params[:page]).reverse_order
   end
 
   def search_genre
