@@ -1,19 +1,30 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_customer!, { except: [:top, :about, :index, :show] }
+  before_action :authenticate_customer!, { except: [:top, :about, :index, :show, :search_genre] }
   def top
-    @products = Product.all
+    @products = Product.all.page(params[:page]).reverse_order
+    @tax = Tax.find(1).tax
   end
 
   def about
   end
 
   def index
-  	@products = Product.all
+    @genres = Genre.all
+  	@products = Product.all.page(params[:page]).reverse_order
+    @tax = Tax.find(1).tax
+  end
+
+  def search_genre
+    @genres = Genre.all
+    @products = Product.where(genre_id: params[:id].to_i)
+    render :index
   end
 
   def show
   	@product = Product.find(params[:id])
     @addcart = Cart.new
+
+    @tax = Tax.find(1).tax
   end
 
 
