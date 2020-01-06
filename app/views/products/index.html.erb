@@ -15,7 +15,7 @@
   <div class="container indexitems">
     <div class="row">
       <div class="col-sm-9">
-        <% @products.each do |product| %>
+        <% @product_onsale.each do |product| %>
           <div class="indexeachitems">
             <%= link_to product_path(product.id) do %>
               <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="col-sm-3"></div>
- <%= paginate @products, class: "paginate" %>
+ <%= paginate @product_onsale, class: "paginate" %>
 </body>
 
 <%= render 'headfoot/footer' %>
