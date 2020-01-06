@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 	def update
 		@customer = Customer.find(params[:id].to_i)
 		@customer.update(customer_params)
-        redirect_to admins_customer_path
+        redirect_to customers_path
     end
     def pass
 		@customer = current_customer

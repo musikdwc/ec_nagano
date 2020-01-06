@@ -21,7 +21,6 @@ class Customers::OrdersController < ApplicationController
 		if	@order = Order.new
 			@order.save
 		    @customer = current_customer
-		    binding.pry
 		    redirect_to customers_thanks_path
 		else
 		   render :new
