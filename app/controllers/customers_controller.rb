@@ -21,6 +21,7 @@ class CustomersController < ApplicationController
     @customer.customer_status!
     redirect_to @customer, notice: 'successfully updated.'
   	end
+
     def customer_params
   	params.require(:customer).permit(:lastname, :firstname, :lastkana, :firstkana, :telephone_number, :postal_code, :address, :email, :customer_status)
     end
