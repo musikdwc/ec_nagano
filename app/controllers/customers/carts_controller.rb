@@ -1,6 +1,8 @@
 class Customers::CartsController < ApplicationController
   def index
     @carts = current_customer.carts
+    @customer = current_customer
+    @tax = Tax.find(1).tax
   end
 
   def create
