@@ -3,7 +3,7 @@
 	<h3>購入情報入力</h3>
 	<div class="row">
 		<h3>支払方法</h3>
-		<%= form_tag(about_customers_orders_path(@customer), method: :post)  do %>
+		<%= form_tag(about_customers_orders_path, method: :post)  do %>
 		<label><%= radio_button_tag(:payment_method, :クレジットカード, true ) %>　クレジットカード</label><br>
 		<label><%= radio_button_tag(:payment_method, :現金振込) %>　現金振込</label>
 	</div>

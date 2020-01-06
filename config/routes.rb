@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     get '/thanks', to: 'orders#thanks'
     resources :carts, only: [:index ,:create, :update, :destroy]
     delete '/all_carts_destroy', to: "carts#all_destroy", as: "all_destroy"
-    resources :orders, only: [:new, :create] do
+    resources :orders, only: [:new, :create, :index, :show] do
       collection do
         post :new,path: :new, as: :new
         post :about

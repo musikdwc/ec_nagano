@@ -8,3 +8,7 @@
 Tax.create!(
 	tax: 1.10
 )
+Admin.create!(
+	email: 'admin@test.com',
+    password: '165432'
+)
