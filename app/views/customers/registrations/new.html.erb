@@ -6,27 +6,27 @@
           <div class="row signup-table">
             <div class="col-xs-3">氏名</div>
               <div>
-                <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", class: "col-xs-2 form signup_name" %>
-                <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", class: "col-xs-2 form" %>
+                <%= f.text_field :lastname, autofocus: true, autocomplete: "lastname", class: "col-xs-2 form signup_name", :placeholder => "山田" %>
+                <%= f.text_field :firstname, autofocus: true, autocomplete: "firstname", class: "col-xs-2 form", :placeholder => "太郎" %>
               </div>
           </div>
           <div class="row signup-table">
             <div class="col-xs-3">カナ氏名</div>
               <div>
-                <%= f.text_field :lastkana, autofocus: true, autocomplete: "lastkana", class: "col-xs-2 form signup_name" %>
-                <%= f.text_field :firstkana, autofocus: true, autocomplete: "firstkana", class: "col-xs-2 form" %>
+                <%= f.text_field :lastkana, autofocus: true, autocomplete: "lastkana", class: "col-xs-2 form signup_name", :placeholder => "ヤマダ" %>
+                <%= f.text_field :firstkana, autofocus: true, autocomplete: "firstkana", class: "col-xs-2 form", :placeholder => "タロウ" %>
               </div>
           </div>
           <div class="row signup-table">
             <div class="col-xs-3">郵便番号<br>( - は含めず)</div>
               <div>
-                <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "col-xs-3 form" %>
+                <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", class: "col-xs-3 form", :placeholder => "000000 ( - は含めず)" %>
               </div>
           </div>
           <div class="row signup-table">
             <div class="col-xs-3">住所</div>
               <div>
-                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-6 form" %>
+                <%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-6 form", :placeholder => "東京都港区..." %>
               </div>
           </div>
           <div class="row signup-table">
