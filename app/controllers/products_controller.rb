@@ -17,7 +17,8 @@ class ProductsController < ApplicationController
 
   def search_genre
     @genres = Genre.all
-    @products = Product.where(genre_id: params[:id].to_i)
+    @product_onsale = Product.where(genre_id: params[:id].to_i).page(params[:page]).reverse_order
+    @tax = Tax.find(1).tax
     render :index
   end
 
