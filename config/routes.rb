@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
       root to: "products#top"
    get '/about',to: 'products#about'
+  
+  get '/search/genre', to: 'products#search_genre'
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',
       passwords:     'admins/passwords',

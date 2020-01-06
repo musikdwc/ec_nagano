@@ -1,3 +1,4 @@
+
 <div id="head-pic">
   <div id="theTarget">
     <div class="image1"></div>
@@ -11,7 +12,6 @@
 <%= render 'headfoot/header' %>
 <%= render 'headfoot/sidebar' %>
 
-
 <body>
   <div>
     <%= form_tag products_path, :method => 'get' do %>
@@ -24,19 +24,21 @@
 
   <div class="container indexitems">
     <div class="row">
-      <div class="col-sm-12">
-        <% @products.each do |product| %>
+      <div class="col-sm-9">
+        <% @product_onsale.each do |product| %>
           <div class="indexeachitems">
             <%= link_to product_path(product.id) do %>
               <%= attachment_image_tag product, :product_image, :fill, 250, 250, fallback:"No-Image-Available.png",size: :"250x250" %>
             <% end %>
             <p class="product_name"><%= product.product_name %></p>
-            <p class="product_price"><%= (product.non_tax * 1.1).floor %>円</p>
+            <p class="product_price"><%= (product.non_tax * @tax).floor %>円</p>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+  <div class="col-sm-3"></div>
+ <%= paginate @product_onsale, class: "paginate" %>
 </body>
 
 <%= render 'headfoot/footer' %>
