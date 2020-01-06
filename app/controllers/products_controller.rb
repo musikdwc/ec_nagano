@@ -10,8 +10,9 @@ class ProductsController < ApplicationController
 
   def index
     @genres = Genre.all
-  	@products = Product.all.page(params[:page]).reverse_order
+    @product_onsale = Product.where(product_status: 0).all.page(params[:page]).reverse_order
     @tax = Tax.find(1).tax
+
   end
 
   def search_genre
