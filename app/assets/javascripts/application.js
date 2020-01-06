@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
@@ -41,3 +41,19 @@
           hidePrevious : false
       });
     });
+
+    $(document).ready(function(){
+      $("#headerwrap").backstretch({
+        "<%= image_path('assets/img/bg1.jpg') %>"
+        , "assets/img/bg2.jpg", "assets/img/bg3.jpg"
+      }, {duration: 5000, fade: 500});
+    });
+
+    jQuery(document).ready(function($){
+'use strict';
+  jQuery('body').backstretch([
+      "assets/img/bg/bg1.jpg"
+    , "assets/img/bg/bg2.jpg"
+    , "assets/img/bg/bg3.jpg"
+  ], {duration: 5000, fade: 500});
+});

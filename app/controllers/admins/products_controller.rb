@@ -1,7 +1,7 @@
 class Admins::ProductsController < ApplicationController
  # あとでbefore_action :authenticate_user!を追加
   def index
-    @product_all = Product.all
+    @product_all = Product.search(params[:search])
 
   end
 

@@ -9,10 +9,10 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @products = Product.search(params[:search])
     @genres = Genre.all
     @product_onsale = Product.where(product_status: 0).all.page(params[:page]).reverse_order
     @tax = Tax.find(1).tax
-
   end
 
   def search_genre
@@ -32,5 +32,4 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:genre_id, :product_name, :non_tax, :product_image_id, :product_description, :product_status)
   end
-
 end

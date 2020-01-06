@@ -1,22 +1,43 @@
+<!-- header -->
+<%= render 'headfoot/header' %>
+
 <div class="container">
-  <%= form_for(@customer,url:"/customers/#{@customer.id}") do |f| %>
-    <%= f.hidden_field :reset_password_token %>
-
-    <div class="field">
-      <%= f.label :password, "New password" %><br />
-      <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-      <% end %>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirm new password" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit "Change my password" %>
+  <!-- error -->
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @customer.errors.count %>件のエラーが発生しました。</h2>
+      <ul>
+        <% @customer.errors.full_messages.each do |message| %>
+          <li>error <%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
+
+
+  <div class="row mypage-header">
+    <%= form_for(@customer,url:"/customers/#{@customer.id}") do |f| %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="field">
+        <%= f.label :password, "新しいパスワード" %><br />
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "新しいパスワードの確認" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "パスワードを更新する" %>
+      </div>
+    <% end %>
+  </div>
 </div>
+
+<!-- footer -->
+<%= render 'headfoot/footer' %>
