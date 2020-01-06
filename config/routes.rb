@@ -15,11 +15,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routiSZng.html
 
   namespace :admins do
-
-   resources :customers
-   resources :products
-   resources :genres, only: [:index ,:create, :edit, :update]
-   get 'product/top',to: "products#top"
+    resources :orders, only: [:index,:show,:update]
+    get '/top', to: "orders#top"
+    resources :customers
+    resources :products
+    resources :genres, only: [:index ,:create, :edit, :update]
+    get 'product/top',to: "products#top"
 
   end
   namespace :customers do
