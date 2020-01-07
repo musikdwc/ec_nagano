@@ -1,0 +1,49 @@
+<%= render 'headfoot/header' %>
+<div class="container">
+	<div class="row">
+		<h3>注文履歴一覧</h3>
+	</div>
+	<div class="row">
+		<table class="col-xs-12 table-bordered">
+			<tr>
+				<th class="col-xs-1">注文日</th>
+				<th class="col-xs-4">配送先</th>
+				<th class="col-xs-2">注文商品</th>
+				<th class="col-xs-1">支払金額</th>
+				<th class="col-xs-1">ステータス</th>
+				<th class="col-xs-1">注文詳細</th>
+			</tr>
+			<% @orders.each do |order| %>
+			<tr>
+				<td>
+					<%= order.created_at.strftime('%Y/%m/%d') %>
+				</td>
+				<td>
+					<%= order.order_post %><br>
+					<%= order.deliver_to %><br>
+					<%= order.shipping_name %>
+				</td>
+				<td>
+					<% order.order_details.each do |detail| %>
+					<%= detail.ordered_item_name %>
+					<% end %>
+				</td>
+				<td>
+					<% sum = 0 %>
+					<% order.order_details.each do |detail| %>
+		            <% sum += detail.ordered_price.to_i %>
+		            <% end %>
+		            <%= sum + order.shipping_cost.to_i  %>
+				</td>
+				<td>
+					<%= order.order_status %>
+				</td>
+				<td class="edit-btn">
+					<%= link_to "表示する",  customers_order_path(order), class: "btn btn-primary" %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+<%= render 'headfoot/footer' %>
