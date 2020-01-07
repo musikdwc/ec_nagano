@@ -1,13 +1,17 @@
-	<%= render 'headfoot/header' %>
+<!-- header -->
+<%= render 'headfoot/header' %>
+
 <div class="container">
 	<div class="row mypage-header">
-		<h4 class="col-xs-12 mypage-header-box">マイページ</h4>
+		<h4 class="mypage-header-box">マイページ</h4>
+		<h4 class="col-xs-4"></h4>
 		<h4 class="col-xs-2">登録情報</h4>
-		<!-- <a class="btn btn-primary" href="/customers/edit" role="button">編集する</a> -->
-		<%= link_to "編集する", edit_customer_registration_path, class: "btn btn-primary" %>
-		<%= link_to "パスワードを変更する", customers_pass_path, data: {"turbolinks" => false}, class: "btn btn-primary" %>
+		<%= link_to "編集する", edit_customer_registration_path, class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
+		<%= link_to "パスワードを変更する", customers_pass_path, class: "btn btn-primary col-xs-2", data: {"turbolinks" => false} %>
 	</div>
+
 	<div class="row mypage-table">
+		<h4 class="col-xs-3"></h4>
 		<table class="table-bordered col-xs-6">
 			  <tr>
 			    <th class="col-xs-1 customer-box">氏名</th>
@@ -40,14 +44,22 @@
 			  </tr>
 		</table>
 	</div>
-	<div class="row mypage-box">
+
+	<div class="row mypage-header">
+		<h4 class="col-xs-4"></h4>
 		<h4 class="col-xs-2">配送先</h4>
-		<!-- <a class="btn btn-primary col-xs-2" href="/customers/deliveries" role="button">一覧を見る</a> -->
-		<%= link_to "一覧を見る", customer_deliveries_path(@customer), class: "btn btn-primary" %>
+		<h4 class="col-xs-2"></h4>
+		<%= link_to "配送先一覧", customer_deliveries_path(@customer), class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
 	</div>
-	<div class="row">
+
+	<div class="row mypage-header">
+		<h4 class="col-xs-4"></h4>
 		<h4 class="col-xs-2">注文履歴</h4>
-		<a class="btn btn-primary col-xs-2" href="/customers/orders"  role="button">一覧を見る</a>
+		<h4 class="col-xs-2"></h4>
+		<%= link_to "注文履歴一覧", customer_deliveries_path(@customer), class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
 	</div>
+
 </div>
-	<%= render 'headfoot/footer' %>
+
+<!-- footer -->
+<%= render 'headfoot/footer' %>

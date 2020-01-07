@@ -201,7 +201,12 @@ margin-right:-100px;
   }
 
   .mypage-header-box{
-    padding: 50px 0px;
+    width: 100%;
+    height: 120px;
+    text-align: center;
+    margin:0 auto;
+    padding: 40px;
+    font-size: 30px;
   }
 
   .mypage-table{
@@ -273,10 +278,10 @@ margin-right:-100px;
   }
 
 
+
 #container{
   height: 800px;
 }
-
 
 #headerwrap {
     margin-top: 0px;
@@ -304,6 +309,7 @@ margin-right:-100px;
     letter-spacing: -1px;
     margin-left: 15px;
     margin-top: 150px;
+
     text-shadow: none;
     text-transform: uppercase;
 }

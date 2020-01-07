@@ -21,7 +21,7 @@
          <% @carts.each do |cart| %>
           <tr>
             <td>
-              <%= attachment_image_tag @product, :product_image, :fill, 50, 50, fallback:"No-Image-Available.png",size: :"50x50" %>
+              <%= attachment_image_tag cart.product, :product_image, :fill, 50, 50, fallback:"No-Image-Available.png",size: :"50x50" %>
               <%= cart.product.product_name %>
             </td>
             <td><%= (cart.product.non_tax * @tax).floor %></td>
