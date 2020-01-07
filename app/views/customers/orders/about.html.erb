@@ -59,12 +59,16 @@
 		  〒<%= @order.order_post %>
 	        <%= @order.deliver_to %>
 		    <%= @order.shipping_name %>
-			<%= form_for :order, url:customers_orders_path(@customer) do |f| %>
-		    <%= f.hidden_field :payment_method %>
-			<%= f.hidden_field :order_post %>
-			<%= f.hidden_field :deliver_to %>
-			<%= f.hidden_field :shipping_name %>
-			<%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+			<%= form_tag(customers_orders_path, method: :post) do %>
+		    <%= hidden_field_tag :payment_method  %>
+			<%= hidden_field_tag :order_post, @order.order_post   %>
+			<%= hidden_field_tag :deliver_to, @order.deliver_to %>
+			<%= hidden_field_tag :shipping_name, @order.shipping_name %>
+			<%= hidden_field_tag :ordered_price, @total_price %>
+			<% @carts.each do |cart| %>
+			<%= hidden_field_tag :ordered_item_count, cart.item_count %>
+			<% end %>
+			<%= submit_tag("確認画面へ進む", class: "btn btn-primary") %>
 			<% end %>
 		</div>
 	</div>

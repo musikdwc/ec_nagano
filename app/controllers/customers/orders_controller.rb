@@ -1,16 +1,21 @@
 class Customers::OrdersController < ApplicationController
 	# before_action :order_params
 	def index
-
+		@orders = current_customer.orders.includes(:order_details)
 	end
 	def show
-
+		@order = Order.find(params[:id])
 	end
 	def about
 		@customer = current_customer
 		@order = @customer.orders.new
 		@carts = current_customer.carts
 	    @tax = Tax.find(1).tax
+	    @products = Product.all
+	    @total_price = 0
+	    @carts.each do |cart|
+     	@total_price += cart.product.non_tax * cart.item_count * 1.1
+     	end
 		if params[:post] == "post_mine_group"
 			@order.order_post = @customer.postal_code
 			@order.deliver_to = @customer.address
@@ -35,11 +40,16 @@ class Customers::OrdersController < ApplicationController
 		@deliveries = current_customer.deliveries
 	end
 	def create
-		if
-		    @customer = current_customer
-      		@order = Order.new
-			@order.save
-		    @customer = current_customer
+        @order = current_customer.orders.new(order_params)
+		if @order.save
+		   current_customer.carts.each do |cart|
+				@order_detail = OrderDetail.new
+				@order_detail.order_id = @order.id
+				@order_detail.ordered_item_name = cart.product.product_name
+				@order_detail.ordered_price = params[:ordered_price]
+				@order_detail.ordered_item_count = cart.item_count
+				@order_detail.save
+		   end
 		    redirect_to customers_thanks_path
    		else
       		render :new
@@ -51,6 +61,9 @@ class Customers::OrdersController < ApplicationController
 private
 
 	def order_params
-		params.require(:order).permit(:shipping_cost, :production_status, :order_status, :payment_method, :deliver_to, :shipping_name, :order_post)
+		params.permit(:deliver_to, :shipping_name, :order_post)
+	end
+	def order_detail_params
+		params.require(:order_detail).permit(:ordered_price, :ordered_item_name)
 	end
 end

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_01_07_073813) do
 
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -74,6 +75,8 @@ ActiveRecord::Schema.define(version: 2020_01_07_073813) do
     t.string "ordered_item_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "production_status"
+    t.integer "ordered_item_count"
   end
 
   create_table "orders", force: :cascade do |t|
