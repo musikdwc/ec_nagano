@@ -49,7 +49,16 @@ background-image: url(image4.jpg);}
 .image5 {
 background-image: url(image5.jpg);
 }
-/**/
+
+.login{
+  margin-top: 20px;
+  text-align: right;
+  font-size: 30px;
+  color:white;
+  font-family: 'Cute Font', cursive;
+
+}
+
 .navbar-default{
   background-color: #470707;
   height: 72px;
@@ -93,19 +102,11 @@ margin: 0 auto;
 }
 
 /*サイドバー設定*/
-.sidebar{
-width: 20%;
+.panel{
+width: 15%;
 float:left;
 }
-.sidebartop{
-font-size:28px;
-}
-.sidebar-contents{
-  font-size:22px;
-}
-.sidebar-link{
-  font-size:20px;
-}
+
 /*サイドバー設定ここまで*/
 
 /*商品一覧関連*/
