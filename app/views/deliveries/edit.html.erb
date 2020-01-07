@@ -1,0 +1,32 @@
+配送先編集ページ
+<div class="container">
+	<div class="row">
+		<div class="col-xs-7">
+		<%= form_for(@delivery, url:customer_delivery_path) do |f| %>
+		    <table class="delivery_table table-bordered col-xs-8">
+		        <tr class="delivery-tr">
+		          <th class="col-xs-3 delivery-th">郵便番号</th>
+		            <td class="col-lg-5">
+		            <%= f.text_field :delivery_post, autofocus: true, autocomplete: "delivery_post" %>
+		            </td>
+		        </tr>
+		        <tr class="delivery-tr">
+		          <th class="col-xs-3 delivery-th">住所</th>
+		            <td class="col-lg-5" >
+		              <%= f.text_field :delivery_address, autofocus: true, autocomplete: "delivery_address" %>
+		            </td>
+		        </tr>
+		        <tr class="delivery-tr">
+		          <th class="col-xs-3 delivery-th">宛名</th>
+		            <td class="col-lg-5" >
+		              <%= f.text_field :delivery_name, autofocus: true, autocomplete: "delivery_name" %>
+		            </td>
+		        </tr>
+		    </table>
+		</div>
+		<div class="row col-xs-2 delivery-submit">
+			    <%= f.submit "編集する", class: "btn btn-primary" %>
+		</div>
+		<% end %>
+	</div>
+</div>

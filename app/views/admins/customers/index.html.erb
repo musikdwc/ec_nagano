@@ -1,0 +1,28 @@
+
+<div class="container">
+	<div class="row">
+		<h3>会員一覧画面</h3>
+	</div>
+	<div class="row">
+		<table class="table table-striped">
+	        <tr>
+	          <th>会員ID</th>
+	          <th>氏名</th>
+	          <th>メールアドレス</th>
+	          <th>ステータス</th>
+	        </tr>
+            <% @customers.each do |customer| %>
+            <tr>
+                <td><%= customer.id %></td>
+                <td><%= link_to admins_customer_path(customer), data: {"turbolinks" => false} do %>
+                	<%= customer.lastname %>
+                	<%= customer.firstname %>
+                	<% end %>
+                </td>
+                <td><%= customer.email %></td>
+                <td><%= customer.customer_status%></td>
+            </tr>
+            <% end %>
+        </table>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<!-- header -->
+<%= render 'headfoot/header' %>
+
+<div class="container">
+	<div class="row mypage-header">
+		<h4 class="mypage-header-box">マイページ</h4>
+		<h4 class="col-xs-4"></h4>
+		<h4 class="col-xs-2">登録情報</h4>
+		<%= link_to "編集する", edit_customer_registration_path, class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
+		<%= link_to "パスワードを変更する", customers_pass_path, class: "btn btn-primary col-xs-2", data: {"turbolinks" => false} %>
+	</div>
+
+	<div class="row mypage-table">
+		<h4 class="col-xs-3"></h4>
+		<table class="table-bordered col-xs-6">
+			  <tr>
+			    <th class="col-xs-1 customer-box">氏名</th>
+			    <td class="col-lg-1"><%= current_customer.lastname %>
+			    	<%= current_customer.firstname %>
+		    	</td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 customer-box">カナ</th>
+			    <td class="col-lg-1" >
+			    	<%= current_customer.lastkana %>
+			    	<%= current_customer.firstkana %>
+			    </td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 customer-box">郵便番号</th>
+			    <td class="col-lg-1">〒<%= current_customer.postal_code %></td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 customer-box">住所</th>
+			    <td class="col-lg-1" ><%= current_customer.address %></td>
+			  </tr>
+			  <tr>
+			    <th class="col-xs-1 customer-box">電話番号</th>
+			    <td class="col-lg-1" ><%= current_customer.telephone_number %></td>
+			  </tr>
+			  <tr >
+			    <th class="col-xs-1 customer-box">メールアドレス</th>
+			    <td class="col-lg-1" ><%= current_customer.email %></td>
+			  </tr>
+		</table>
+	</div>
+
+	<div class="row mypage-header">
+		<h4 class="col-xs-4"></h4>
+		<h4 class="col-xs-2">配送先</h4>
+		<h4 class="col-xs-2"></h4>
+		<%= link_to "配送先一覧", customer_deliveries_path(@customer), class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
+	</div>
+
+	<div class="row mypage-header">
+		<h4 class="col-xs-4"></h4>
+		<h4 class="col-xs-2">注文履歴</h4>
+		<h4 class="col-xs-2"></h4>
+		<%= link_to "注文履歴一覧", customer_deliveries_path(@customer), class: "btn btn-primary col-xs-1", data: {"turbolinks" => false} %>
+	</div>
+
+</div>
+
+<!-- footer -->
+<%= render 'headfoot/footer' %>

@@ -1,0 +1,9 @@
+<div class="sidebar">
+        <ul class="sidebarcontents">
+            <li class="sidebartop">ジャンル検索</li>
+            <% Genre.all.each do |g| %>
+            <li class="sidebar-link">	<%= link_to g.genre_name, "/search/genre?id=#{g.id}"  %></li>
+	            <!-- <li class="sidebar-contents">Genre1</li> -->
+            <% end %>
+        </ul>
+</div>

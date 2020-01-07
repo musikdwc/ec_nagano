@@ -1,0 +1,73 @@
+<!-- header -->
+<%= render 'headfoot/header' %>
+
+<!-- delivery_new -->
+<div class="container">
+	<div class="row delivery-container">
+		<h4 class="mypage-header-box">配送先登録/一覧</h4>
+		<%= form_for(@delivery_new, url:customer_deliveries_path) do |f| %>
+		  <div class="col-xs-2"></div>
+		  <table class="delivery_table table-bordered col-xs-8">
+        <tr class="delivery-tr">
+          <th class="col-xs-2 delivery-th">郵便番号</th>
+            <td class="col-lg-5">
+            <%= f.text_field :delivery_post, autofocus: true, autocomplete: "delivery_post", :class => "col-xs-10" %>
+            </td>
+        </tr>
+        <tr class="delivery-tr">
+          <th class="col-xs-2 delivery-th">住所</th>
+            <td class="col-lg-5" >
+              <%= f.text_field :delivery_address, autofocus: true, autocomplete: "delivery_address", :class => "col-xs-10" %>
+            </td>
+        </tr>
+        <tr class="delivery-tr">
+          <th class="col-xs-2 delivery-th">宛名</th>
+            <td class="col-lg-5" >
+              <%= f.text_field :delivery_name, autofocus: true, autocomplete: "delivery_name", :class => "col-lg-10" %>
+            </td>
+        </tr>
+		  </table>
+  </div>
+	<br>
+	<div class="row">
+		<div class="col-xs-9"></div>
+		<div class="col-xs-2">
+			<%= f.submit "登録する", class: "btn btn-primary" %>
+		</div>
+	</div>
+		  <% end %>
+	<br>
+
+	<!-- delivery_index -->
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<table class="table-bordered col-xs-8">
+			<tr>
+				<th class="col-xs-2 delivery-th">郵便番号</th>
+				<th class="col-xs-5 delivery-th">住所</th>
+				<th class="col-xs-2 delivery-th">宛名</th>
+				<th class="col-xs-3 delivery-th"></th>
+			</tr>
+			<% @customer.deliveries.each do |delivery| %>
+				<tr>
+					<td>
+						<%= delivery.delivery_post %>
+					</td>
+					<td>
+						<%= delivery.delivery_address %>
+					</td>
+					<td>
+						<%= delivery.delivery_name %>
+					</td>
+					<td>
+	    			<%= link_to "編集する", edit_customer_delivery_path(@customer.id, delivery.id), class: "btn btn-primary" %>
+	    			<%= link_to "削除する",customer_delivery_path(@customer.id, delivery.id), method: :delete, class: "btn btn-danger" %>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<!-- footer -->
+<%= render 'headfoot/footer' %>

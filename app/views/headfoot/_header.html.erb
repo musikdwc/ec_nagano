@@ -1,0 +1,111 @@
+
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">
+        <div class="headicon"></div>
+      </a>
+      <a class="navbar-brand" href="#">
+        ~ Nagano Cake ~
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">メニュー<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if customer_signed_in? %>
+              <li>
+                <%= link_to customers_path do %>
+                 マイページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to customers_path do %>
+                  <!-- 遷移先をroot_pathに変更予定 -->
+                  TOPページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to products_path do %>
+                  商品ジャンル
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to destroy_customer_session_path, method: :delete do %>
+                  ログアウト
+                <% end %>
+              </li>
+            <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to admins_customers_path do %>
+                  会員一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admins_genres_path do %>
+                  ジャンル一覧
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admins_products_path do %>
+                  商品一覧
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to destroy_admin_session_path, method: :delete do %>
+                  ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to new_customer_session_path do %>
+                  <!-- 遷移先をroot_pathに変更予定 -->
+                  TOPページ
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path do %>
+                  <!-- 遷移先をroot_pathに変更予定 -->
+                  店舗紹介
+                <% end %>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li>
+                <%= link_to new_customer_registration_path do %>
+                  <!-- 遷移先をroot_pathに変更予定 -->
+                  新規会員登録
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_customer_session_path do %>
+                  <!-- 遷移先をroot_pathに変更予定 -->
+                  ログイン
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+        <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="商品名検索">
+        </div>
+        <button type="submit" class="btn btn-default">検索する</button>
+      </form>
+      </ul>
+    </div>
+  </div>
+</nav>
