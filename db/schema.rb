@@ -13,9 +13,9 @@
 
 
 
+
+
 ActiveRecord::Schema.define(version: 2020_01_07_073813) do
-
-
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false

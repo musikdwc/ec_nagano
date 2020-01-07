@@ -1,6 +1,4 @@
 <head><link href="https://fonts.googleapis.com/css?family=Cute+Font|Noto+Sans+JP&display=swap" rel="stylesheet"> </head>
-
-
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
 
@@ -47,7 +45,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <%= link_to destroy_customer_session_path, method: :delete do %>
+                <%= link_to destroy_customer_session_path, method: :get do %>
                   ログアウト
                 <% end %>
               </li>
@@ -69,7 +67,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <%= link_to destroy_admin_session_path, method: :delete do %>
+                <%= link_to destroy_admin_session_path, method: :get do %>
                   ログアウト
                 <% end %>
               </li>
