@@ -22,7 +22,8 @@
    <div class="description col-xs-9">
        <p class="itemname"><%= @product.product_name %></p>
        <p class="itemdescription"><%= @product.product_description %></p>
-        <p class="itemprice">価格（税込み）<%= (@product.non_tax * 1.1).floor %>円</p>
+       
+        <p class="itemprice">価格（税込み）<%= (@product.non_tax * @tax).floor %>円</p>
     </div>
 </div>
   <div class="row">
