@@ -3,6 +3,15 @@
 
 <div class="container">
   <div class="row">
+
+    <div>
+      <%= form_tag admins_products_path, :method => 'get' do %>
+        <%= label_tag :product_name, "気になる商品名" %>
+        <%= text_field_tag :search, params[:search], :placeholder => "部分一致検査" %>
+        <%= submit_tag "検索する", :product_name => nil %>
+      <% end %>
+      <%= yield %>
+    </div>
     <div class="col-sm-2">
     </div>
       <div class="col-sm-9">

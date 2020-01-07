@@ -5,10 +5,22 @@
 
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 
-Tax.create!(
-	tax: 1.10
-)
 Admin.create!(
 	email: 'admin@test.com',
     password: '165432'
 )
+Customer.create(email: 'test1@test.com', password: '111111')
+Customer.create(email: 'test2@test.com', password: '222222')
+Customer.create(email: 'test3@test.com', password: '333333')
+Customer.create(email: 'test4@test.com', password: '444444')
+
+Admin.create!(
+    {
+      email: 'admin1@test.com',
+      password: '111111'
+    }
+)
+
+
+
+Tax.create(tax: 1.1)
