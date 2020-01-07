@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+
+
 ActiveRecord::Schema.define(version: 2020_01_07_073813) do
+
 
 
   create_table "admins", force: :cascade do |t|
@@ -75,7 +79,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_073813) do
     t.string "ordered_item_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "production_status"
+    t.integer "production_status", default: 1
     t.integer "ordered_item_count"
   end
 
