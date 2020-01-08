@@ -10,7 +10,7 @@ class Customers::OrdersController < ApplicationController
 		@customer = current_customer
 		@order = @customer.orders.new
 		@carts = current_customer.carts
-	    @tax = Tax.find(1).tax
+	    @tax = Tax.find(2).tax
 	    @products = Product.all
 	    @total_price = 0
 	    @carts.each do |cart|

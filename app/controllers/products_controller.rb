@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_customer!, { except: [:top, :about, :index, :show, :search_genre] }
   def top
     @products = Product.all.page(params[:page]).reverse_order
-    @tax = Tax.find(1).tax
+    @tax = Tax.find(2).tax
   end
 
   def about
@@ -12,13 +12,13 @@ class ProductsController < ApplicationController
     @products = Product.search(params[:search])
     @genres = Genre.all
     @product_onsale = Product.where(product_status: 0).all.page(params[:page]).reverse_order
-    @tax = Tax.find(1).tax
+    @tax = Tax.find(2).tax
   end
 
   def search_genre
     @genres = Genre.all
     @product_onsale = Product.where(genre_id: params[:id].to_i).page(params[:page]).reverse_order
-    @tax = Tax.find(1).tax
+    @tax = Tax.find(2).tax
     render :index
   end
 
@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   	@product = Product.find(params[:id])
     @addcart = Cart.new
 
-    @tax = Tax.find(1).tax
+    @tax = Tax.find(2).tax
   end
 
 
