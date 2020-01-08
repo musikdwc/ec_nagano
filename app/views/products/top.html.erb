@@ -1,3 +1,4 @@
+<%= render 'headfoot/header' %>
 
 <div id="head-pic">
 	<div id="theTarget">
@@ -9,7 +10,7 @@
 	</div>
 </div>
 
-<%= render 'headfoot/header' %>
+
 <body>
 	<div class="container topitem">
 		<div class="row">
@@ -31,5 +32,5 @@
 		</div>
 	</div>
 </body>
-  <%= paginate @products, class: "paginate" %>
+<%= paginate @products, class: "paginate" %>
 <%= render 'headfoot/footer' %>

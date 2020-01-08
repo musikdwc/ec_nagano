@@ -1,30 +1,34 @@
+<body>
+
 <h1><center>商品情報編集画面</center></h1>
-  <div class="contaner">
-    <div class="row">
-      <div class="col-sm-1"></div>
-        <%= form_for @product, url: admins_product_path do |f| %>
-            <div class="col-sm-3">
-               <h3> 商品画像登録 </h3>
- 	                <%= f.attachment_field :product_image %>
-            </div>
-                <div class="col-sm-8">
-               		 <h4>商品名<span class="text_span"><%= f.text_field :product_name %></span></h4>
-              			   <h4 class="text_break">商品情報
-              				   <%= f.text_area :product_description %></h4>
-                 				     <h4>税抜価格 	<span class="text_span"><%= f.text_field :non_tax %>円</span></h4>
-                 				   			<h4> 商品ステータス　販売中/販売停止中</h4>
-                 				   			  <label><%= f.radio_button  :product_status, :販売中 %> "販売中" </label>
-               			             	    <label><%= f.radio_button  :product_status, :販売停止中 %> "販売停止中"</label>
-                                         <h4>ジャンル
-                                           <%= f.label "ジャンル" %>
-              		        						          <%= f.collection_select(:genre_id, @genre, :id,:genre_name) %></h4>
-                                                    <br><%= f.submit "商品情報編集を反映" %>
-                                                      <% end %>
-                                                         </div>
-                                                             <div class="toindex">
-                                                               <button type="button" class="btn btn-default btn-lg">
-                                                                 <%= link_to "商品一覧へ", admins_products_path %>
-                                                                    </button>
-                                                                       </div>
-                                                           </div>
+<div class="contaner">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <%= form_for @product, url: admins_product_path do |f| %>
+      <div class="col-sm-3">
+      <h3> 商品画像登録 </h3>
+      <%= f.attachment_field :product_image %>
       </div>
+      <div class="col-sm-8">
+      <h4>商品名<span class="text_span"><%= f.text_field :product_name %></span></h4>
+      <h4 class="text_break">商品情報
+      <%= f.text_area :product_description %></h4>
+      <h4>税抜価格 	<span class="text_span"><%= f.text_field :non_tax %>円</span></h4>
+      <h4> 商品ステータス　販売中/販売停止中</h4>
+      <label><%= f.radio_button  :product_status, :販売中 %> "販売中" </label>
+      <label><%= f.radio_button  :product_status, :販売停止中 %> "販売停止中"</label>
+      <h4>ジャンル
+      <%= f.label "ジャンル" %>
+      <%= f.collection_select(:genre_id, @genre, :id,:genre_name) %></h4>
+      <br><%= f.submit "商品情報編集を反映" %>
+      <% end %>
+      </div>
+      <div class="toindex">
+      <button type="button" class="btn btn-default btn-lg">
+      <%= link_to "商品一覧へ", admins_products_path %>
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>

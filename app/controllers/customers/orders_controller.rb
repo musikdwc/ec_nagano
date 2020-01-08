@@ -49,12 +49,12 @@ class Customers::OrdersController < ApplicationController
 				@order_detail.ordered_price = params[:ordered_price]
 				@order_detail.ordered_item_count = cart.item_count
 				@order_detail.save
+				current_customer.carts.delete_all
 		   end
 		    redirect_to customers_thanks_path
    		else
       		render :new
     	end
-
 	end
 
 

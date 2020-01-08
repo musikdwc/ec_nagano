@@ -1,12 +1,16 @@
+<body>
+
 <%= render 'headfoot/header' %>
 <div class="container">
 	<h2>　　管理者画面</h2>
 	<div class="row">
-		<h2>　　　本日の注文件数　　
-		<%= link_to admins_orders_path do %>　　
+		<h2>　　　本日の注文件数
+		<%= link_to admins_orders_path do %>
 		 <%= @count %>
 		<% end %>
 		   件 </h2>
 	</div>
 </div>
 <%= render 'headfoot/footer' %>
+
+</body>
