@@ -44,5 +44,8 @@ Rails.application.routes.draw do
       patch :customer_status
       resources :deliveries, only:[:index, :edit, :update, :destroy, :new, :create]
   end
+  devise_scope :customer do
+    get '/customers/sign_out' => 'devise/sessions#destroy'
+  end
 
 end

@@ -3,15 +3,15 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 # before_action :current_customer
 	def after_sign_in_path_for(resouces)
 		if customer_signed_in?
-	      	customers_path(current_customer)
+	      	root_path
 		else
-			admins_customers_path
+			admins_top_path
 	    end
  	end
 
  	def after_sign_out_path_for(resource)
      	if resource == :customer
-			new_customer_session_path
+			root_path
 		else
 			new_admin_session_path
 	    end

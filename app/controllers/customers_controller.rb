@@ -19,9 +19,8 @@ class CustomersController < ApplicationController
     end
     def customer_status
     @customer.customer_status!
-    redirect_to @customer, notice: 'successfully updated.'
+    redirect_to destroy_customer_session_path, method: :delete
   	end
-
     def customer_params
   	params.require(:customer).permit(:lastname, :firstname, :lastkana, :firstkana, :telephone_number, :postal_code, :address, :email, :customer_status)
     end
