@@ -1,3 +1,5 @@
+<body>
+
 <%= render 'headfoot/header' %>
 <div class="container">
 	<div class="row">
@@ -57,20 +59,22 @@
 		<h3>お届け先</h3>
 		<div>
 		  〒<%= @order.order_post %>
-	        <%= @order.deliver_to %>
-		    <%= @order.shipping_name %>
+	    <%= @order.deliver_to %>
+		  <%= @order.shipping_name %>
 			<%= form_tag(customers_orders_path, method: :post) do %>
 		    <%= hidden_field_tag :payment_method  %>
-			<%= hidden_field_tag :order_post, @order.order_post   %>
-			<%= hidden_field_tag :deliver_to, @order.deliver_to %>
-			<%= hidden_field_tag :shipping_name, @order.shipping_name %>
-			<%= hidden_field_tag :ordered_price, @total_price %>
-			<% @carts.each do |cart| %>
-			<%= hidden_field_tag :ordered_item_count, cart.item_count %>
-			<% end %>
-			<%= submit_tag("確認画面へ進む", class: "btn btn-primary") %>
+				<%= hidden_field_tag :order_post, @order.order_post   %>
+				<%= hidden_field_tag :deliver_to, @order.deliver_to %>
+				<%= hidden_field_tag :shipping_name, @order.shipping_name %>
+				<%= hidden_field_tag :ordered_price, @total_price %>
+				<% @carts.each do |cart| %>
+					<%= hidden_field_tag :ordered_item_count, cart.item_count %>
+				<% end %>
+				<%= submit_tag("注文を確定する", class: "btn btn-primary") %>
 			<% end %>
 		</div>
 	</div>
 </div>
 <%= render 'headfoot/footer' %>
+
+</body>

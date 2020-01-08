@@ -1,41 +1,46 @@
+<body>
+
 <%= render 'headfoot/header' %>
 
-<h1>ジャンル　一覧・新規作成・編集遷移</h1>
+<div class="container">
+  <h1>ジャンル　一覧・新規作成・編集遷移</h1>
 
-<h2>ジャンル新規作成</h2>
-<%= form_for(@newgenre, url: admins_genres_path) do |f| %>
+  <h2>ジャンル新規作成</h2>
+  <%= form_for(@newgenre, url: admins_genres_path) do |f| %>
 
-  <p>ジャンル作成</p>
-  <%= f.text_field :genre_name %>
+    <p>ジャンル作成</p>
+    <%= f.text_field :genre_name %>
 
-  <%= f.radio_button :genre_status, :有効 %>
-  <%= f.label :genre_status, "有効" %>
-  <%= f.radio_button :genre_status, :無効 %>
-  <%= f.label :genre_status, "無効" %>
+    <%= f.radio_button :genre_status, :有効 %>
+    <%= f.label :genre_status, "有効" %>
+    <%= f.radio_button :genre_status, :無効 %>
+    <%= f.label :genre_status, "無効" %>
 
-  <br><%= f.submit 'Create Genre' %></br>
-<% end %>
+    <br><%= f.submit 'Create Genre' %></br>
+  <% end %>
 
-<h2>ジャンル一覧</h2>
+  <h2>ジャンル一覧</h2>
 
-<table class="table">
-  <tbody>
-    <% @genres.each do |genre| %>
-      <tr>
-        <td></td>
-        <td>
-          <%= genre.genre_name %>
-        </td>
-        <td>
-          <%= genre.genre_status %>
-        </td>
-        <td>
-          <%= link_to "編集する", edit_admins_genre_path(genre) %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <table class="table">
+    <tbody>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td></td>
+          <td>
+            <%= genre.genre_name %>
+          </td>
+          <td>
+            <%= genre.genre_status %>
+          </td>
+          <td>
+            <%= link_to "編集する", edit_admins_genre_path(genre) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <%= render 'headfoot/footer' %>
+
+</body>

@@ -10,7 +10,7 @@ class Customers::OrdersController < ApplicationController
 		@customer = current_customer
 		@order = @customer.orders.new
 		@carts = current_customer.carts
-	    @tax = Tax.find(1).tax
+	    @tax = Tax.find(2).tax
 	    @products = Product.all
 	    @total_price = 0
 	    @carts.each do |cart|
@@ -49,12 +49,12 @@ class Customers::OrdersController < ApplicationController
 				@order_detail.ordered_price = params[:ordered_price]
 				@order_detail.ordered_item_count = cart.item_count
 				@order_detail.save
+				current_customer.carts.delete_all
 		   end
 		    redirect_to customers_thanks_path
    		else
       		render :new
     	end
-
 	end
 
 
